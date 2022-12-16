@@ -11,7 +11,6 @@ const questions = {
     school: 'Enter intern\'s school name: ',
     exitMsg: `${new inquirer.Separator()}\n Employee profile added!\n Add another employee or exit application?`,
 }
-
 const inquiry = (role) =>[
     {
         name: 'name',
@@ -53,7 +52,6 @@ const inquiry = (role) =>[
         choices: ['Engineer','Intern','Exit'],
     },
 ]   
-
 function init(role) {
 
     inquirer.prompt(inquiry(role))
