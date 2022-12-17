@@ -1,8 +1,12 @@
+const Manager = require("./lib/manager");
+const Engineer = require("./lib/engineer");
+const Intern = require("./lib/intern");
+
 const inquirer = require('inquirer');
 
 const welcome = '--Create your team.\n--Enter the manager\'s information,\n--then choose to add engineers and/or interns.'
 
-const questions = { 
+const questions = {
     name: 'Enter employee name: ',
     id: 'Enter employeee id: ',
     email: 'Enter employee e-mail address: ',
@@ -51,25 +55,34 @@ const inquiry = (role) =>[
         message: questions.exitMsg,
         choices: ['Engineer','Intern','Exit'],
     },
-]   
-function init(role) {
+]
 
+const createEmployee = (role,{name,id,email,officeNumber,gitHub,school}) => {
+    switch (role){
+        case 'Manager':{
+            let employee = new Manager(name,id,email,officeNumber);
+            break;
+        }
+        case 'Engineer':{
+            let employee = new Engineer(name,id,email,gitHub);
+            break;
+        }
+        case 'Intern':{
+            let employee = new Intern(name,id,email,school);
+            break;
+        }
+    }
+    
+}
+function init(role) {
     inquirer.prompt(inquiry(role))
     .then((response) =>{
-        switch(role){
-            case 'Manager':
-                //create new manager
-            case 'Engineer':
-                //create new enginer
-            case 'Intern':
-                //create new intern
-        }
+        createEmployee(role,response);
+      
         if (response.menu != 'Exit') init(response.menu);
-        //
-        
+        //     
     })
     //.catch(() => console.log("Oops, Something went wrong!"));     //message to return on error
-  }
-
+}
 console.log(welcome);
 init('Manager');   //initialize program
