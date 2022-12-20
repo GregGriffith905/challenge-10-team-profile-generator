@@ -1,8 +1,14 @@
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
+const createPage = require("./src/createPage")
 
 const inquirer = require('inquirer');
+
+let manager;
+let engineers = [];
+let interns = [];
+
 
 const welcome = '--Create your team.\n--Enter the manager\'s information,\n--then choose to add engineers and/or interns.'
 
@@ -56,23 +62,23 @@ const inquiry = (role) =>[
         choices: ['Engineer','Intern','Exit'],
     },
 ]
-
 const createEmployee = (role,{name,id,email,officeNumber,gitHub,school}) => {
     switch (role){
         case 'Manager':{
-            let employee = new Manager(name,id,email,officeNumber);
+            manager = new Manager(name,id,email,officeNumber);
             break;
         }
         case 'Engineer':{
             let employee = new Engineer(name,id,email,gitHub);
+            engineers.push(employee);
             break;
         }
         case 'Intern':{
             let employee = new Intern(name,id,email,school);
+            interns.push(employee);
             break;
         }
-    }
-    
+    }    
 }
 function init(role) {
     inquirer.prompt(inquiry(role))
@@ -80,6 +86,11 @@ function init(role) {
         createEmployee(role,response);
       
         if (response.menu != 'Exit') init(response.menu);
+        if (response.menu == 'Exit') {
+            //console.log(manager,engineers,interns);;
+            let fileout =  createPage(manager,engineers,interns); 
+            console.log(fileout);
+        }
         //     
     })
     //.catch(() => console.log("Oops, Something went wrong!"));     //message to return on error
