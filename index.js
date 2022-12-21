@@ -4,11 +4,11 @@ const Intern = require("./lib/intern");
 const createPage = require("./src/createPage")
 
 const inquirer = require('inquirer');
+const fs = require('fs'); 
 
 let manager;
 let engineers = [];
 let interns = [];
-
 
 const welcome = '--Create your team.\n--Enter the manager\'s information,\n--then choose to add engineers and/or interns.'
 
@@ -87,11 +87,10 @@ function init(role) {
       
         if (response.menu != 'Exit') init(response.menu);
         if (response.menu == 'Exit') {
-            //console.log(manager,engineers,interns);;
             let fileout =  createPage(manager,engineers,interns); 
-            console.log(fileout);
+            fs.writeFile('./dist/index.html', fileout, (err) => err ? console.error(err) : console.log('\n*\n***HTML created successfully***'));
         }
-        //     
+             
     })
     //.catch(() => console.log("Oops, Something went wrong!"));     //message to return on error
 }
