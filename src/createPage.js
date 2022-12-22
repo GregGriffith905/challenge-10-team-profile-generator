@@ -62,5 +62,3 @@ let createPage = (manager,engineers,interns) =>{    //store html here before wri
     return returnVal;                                   //return string            
 }
 module.exports = createPage;
-
-
