@@ -1,4 +1,4 @@
-const openHTML = () =>
+const openHTML = () =>  //template for first section of html
     `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -22,15 +22,15 @@ const openHTML = () =>
       
       
     `;
-const employeeSection = (employee) =>{
-    let {name,id,email,officeNumber,gitHub,school} = employee;
-    let role = employee.getRole();
-    let icon = employee.getIcon();
+const employeeSection = (employee) =>{  //template for employee cards
+    let {name,id,email,officeNumber,gitHub,school} = employee;       //destructure object
+    let role = employee.getRole();                                   //getrole methods   
+    let icon = employee.getIcon();                                   //geticon methods
     return `
         <div class="col">
         <div class="card" style="width: 18rem;">
             <div class="card-body bg-primary">
-            <h3 class="card-title">${name}</h3>
+            <h3 class="card-title">${name}</h3>                      
             <h5 class="card-text">${icon} ${role}</h5>
             </div>
             <div class="card-body" >
@@ -46,20 +46,20 @@ const employeeSection = (employee) =>{
         </div>
        
     `;}    
-const closeHTML = () =>
+const closeHTML = () =>   //template to close html
     `</div>
     </div>
     </body>
     </html>
     `;
 let createPage = (manager,engineers,interns) =>{
-    let returnVal;
-    returnVal = openHTML();
-    returnVal += employeeSection(manager);
-    engineers.forEach(engineer => returnVal += (employeeSection(engineer)));
-    interns.forEach(intern => returnVal += (employeeSection(intern)));
-    returnVal += closeHTML();
-    return returnVal;
+    let returnVal;                                      //declare return string
+    returnVal = openHTML();                             //append opening template    
+    returnVal += employeeSection(manager);              //append manager section
+    engineers.forEach(engineer => returnVal += (employeeSection(engineer))); //append each engineer
+    interns.forEach(intern => returnVal += (employeeSection(intern)));       //append each intern
+    returnVal += closeHTML();                           //append closing template
+    return returnVal;                                   //return string            
 }
 module.exports = createPage;
 
