@@ -52,7 +52,7 @@ const closeHTML = () =>   //template to close html
     </body>
     </html>
     `;
-let createPage = (manager,engineers,interns) =>{
+let createPage = (manager,engineers,interns) =>{    //store html here before writing to file
     let returnVal;                                      //declare return string
     returnVal = openHTML();                             //append opening template    
     returnVal += employeeSection(manager);              //append manager section

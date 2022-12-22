@@ -12,32 +12,23 @@ let interns = [];
                                                  //welcome message
 const welcome = '--Create your team.\n--Enter the manager\'s information,\n--then choose to add engineers and/or interns.'
 
-const questions = {     //questions for user input
-    name: 'Enter employee name: ',
-    id: 'Enter employeee id: ',
-    email: 'Enter employee e-mail address: ',
-    officeNumber: 'Enter manager\'s office number: ',
-    gitHub: 'Enter engineer\'s GitHub user name: ',
-    school: 'Enter intern\'s school name: ',
-    exitMsg: `${new inquirer.Separator()}\n Employee profile added!\n Add another employee or exit application?`,
-}
 const inquiry = (role) =>[  //inquiry
     {
         name: 'name',
         type: 'input',
-        message: questions.name,                                               //ask all
+        message:'Enter employee name: ',                                       //ask all
         validate:(val)=> (val? true : "Required field"),                       //required field
     },
     {
         name: 'id',
         type: 'input',
-        message: questions.id,                                                 //ask all
+        message: 'Enter employeee id: ',                                       //ask all
         validate:(val)=> (!isNaN(val)? true : " Invalid ID, try again"),       //id must be number 
     },
     {
         name: 'email',
         type: 'input',
-        message: questions.email,                                              //ask all
+        message: 'Enter employee e-mail address: ',                            //ask all
         validate:(val)=> {                                                     //validate email address         
             let res = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;      
             let returnVal = res.test(val);
@@ -48,7 +39,7 @@ const inquiry = (role) =>[  //inquiry
     {
         name: 'officeNumber',
         type: 'input',
-        message: questions.officeNumber,                                       //ask manager only
+        message: 'Enter manager\'s office number: ',                           //ask manager only
         when: role == 'Manager',
         validate:(val)=> {                                                     //validate phone number 
             let res = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
@@ -60,21 +51,21 @@ const inquiry = (role) =>[  //inquiry
     {
         name: 'gitHub',
         type: 'input',
-        message: questions.gitHub,                                             //ask engineer only
+        message: 'Enter engineer\'s GitHub user name: ',                       //ask engineer only
         when: role == 'Engineer',
         validate:(val)=> (val? true : "Required field"),                       //required field 
     },
     {
         name: 'school',
         type: 'input',
-        message: questions.school,                                             //ask intern only
+        message: 'Enter intern\'s school name: ',                              //ask intern only
         when: role == "Intern",
         validate:(val)=> (val? true : "Required field"),                       //required field 
     },
     {
         name: 'menu',                                                          //menu options
         type: 'list',
-        message: questions.exitMsg,
+        message: `${new inquirer.Separator()}\n Employee profile added!\n Add another employee or exit application?`,
         choices: ['Engineer','Intern','Exit'],                                  
     },
 ]
@@ -108,7 +99,7 @@ function init(role) {   //run application
         }
              
     })
-    .catch(() => console.log("Oops, Something went wrong!"));     //message to return on error
+    .catch(() => console.log("Oops, Something went wrong!"));        //message to return on error
 }
 console.log(welcome); //log welcome message
 init('Manager');      //initialize program
