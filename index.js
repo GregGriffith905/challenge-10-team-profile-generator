@@ -25,38 +25,54 @@ const inquiry = (role) =>[
     {
         name: 'name',
         type: 'input',
-        message: questions.name,            //ask all
+        message: questions.name,                        //ask all
+        validate:(val)=> (val? true : "Required field"),
     },
     {
         name: 'id',
         type: 'input',
-        message: questions.id,              //ask all
+        message: questions.id,                          //ask all
+        validate:(val)=> (!isNaN(val)? true : " Invalid ID, try again"),
     },
     {
         name: 'email',
         type: 'input',
-        message: questions.email,           //ask all
+        message: questions.email,                       //ask all
+        validate:(val)=> {
+            let res = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            let returnVal = res.test(val);
+            if (returnVal) return true;
+            else console.log("  Invalid e-mail address, try again");
+          },
     },
     {
         name: 'officeNumber',
         type: 'input',
-        message: questions.officeNumber,    //ask manager only
+        message: questions.officeNumber,                //ask manager only
         when: role == 'Manager',
+        validate:(val)=> {
+            let res = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+            let returnVal = res.test(val);
+            if (returnVal) return true;  
+            else console.log("  Invalid phone number, try again");
+              }
     },
     {
         name: 'gitHub',
         type: 'input',
-        message: questions.gitHub,          //ask engineer only
+        message: questions.gitHub,                      //ask engineer only
         when: role == 'Engineer',
+        validate:(val)=> (val? true : "Required field"),
     },
     {
         name: 'school',
         type: 'input',
-        message: questions.school,          //ask intern only
+        message: questions.school,                      //ask intern only
         when: role == "Intern",
+        validate:(val)=> (val? true : "Required field"),
     },
     {
-        name: 'menu',                       //menu options
+        name: 'menu',                                   //menu options
         type: 'list',
         message: questions.exitMsg,
         choices: ['Engineer','Intern','Exit'],

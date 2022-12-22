@@ -17,7 +17,7 @@ const openHTML = () =>
         </nav>
     </header>
     <body>
-    <div class="container text-center">
+    <div class="container text-right">
     <div class="row align-items-start">
       
       
