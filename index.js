@@ -1,15 +1,15 @@
-const Manager = require("./lib/manager");        //import classes
+const Manager = require("./lib/manager");             //import classes
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
-const createPage = require("./src/createPage")
 
-const inquirer = require('inquirer');            //import libraries   
+const generateHtml = require("./src/generateHtml")    //import other files
+const inquirer = require('inquirer');                 //import libraries   
 const fs = require('fs'); 
 
-let manager;                                     //declare variables                   
+let manager;                                          //declare variables                   
 let engineers = [];
 let interns = [];
-                                                 //welcome message
+                                                      //welcome message
 const welcome = '--Create your team.\n--Enter the manager\'s information,\n--then choose to add engineers and/or interns.'
 
 const inquiry = (role) =>[  //inquiry
@@ -23,7 +23,7 @@ const inquiry = (role) =>[  //inquiry
         name: 'id',
         type: 'input',
         message: 'Enter employeee id: ',                                       //ask all
-        validate:(val)=> (!isNaN(val)? true : " Invalid ID, try again"),       //id must be number 
+        validate:(val)=> (!isNaN(val)? true : "Invalid ID, try again"),       //id must be number 
     },
     {
         name: 'email',
@@ -33,7 +33,7 @@ const inquiry = (role) =>[  //inquiry
             let res = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;      
             let returnVal = res.test(val);
             if (returnVal) return true;
-            else console.log("  Invalid e-mail address, try again");
+            else return "Invalid e-mail address, try again";
           },
     },
     {
@@ -45,7 +45,7 @@ const inquiry = (role) =>[  //inquiry
             let res = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
             let returnVal = res.test(val);
             if (returnVal) return true;  
-            else console.log("  Invalid phone number, try again");
+            else return "nvalid phone number, try again";
               }
     },
     {
@@ -94,7 +94,7 @@ function init(role) {   //run application
       
         if (response.menu != 'Exit') init(response.menu);            //recall function to add more employees
         if (response.menu == 'Exit') {
-            let fileout =  createPage(manager,engineers,interns);    //call function to generate html then write to file
+            let fileout =  generateHtml(manager,engineers,interns);  //call function to generate html then write to file
             fs.writeFile('./dist/index.html', fileout, (err) => err ? console.error(err) : console.log('\n*\n***HTML created successfully***'));
         }
              

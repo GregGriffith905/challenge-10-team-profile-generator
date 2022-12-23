@@ -32,15 +32,15 @@ This project is licensed under the terms of the [MIT License](https://choosealic
 
 ## Features
 
-- This application features validation methods to ensure user input is in the correct format.
-- Id - must be a number.
-- Email - must be a valid email address format i.e "user@domain".
-- office# - must be a valid telephone number format i.e "(xxx)xxx-xxxx" or "xxx-xxx-xxxx" or "xxx xxx xxx" or "xxxxxxxxx".
+This application features validation methods to ensure user input is in the correct format:
+- ID must be a number.
+- E-mail must be a valid email address format i.e "user@domain".
+- Office # must be a valid telephone number format i.e "(xxx)xxx-xxxx" or "xxx-xxx-xxxx" or "xxx xxx xxx" or "xxxxxxxxx".
 - All fields are required.
 
 ## Tests
 
-Tests have been included for Object classes. To run test at the command line type "npm run test"
+Tests have been included for all object methods. To run test at the command line type "npm run test"
 
 ## Questions
 
