@@ -95,7 +95,7 @@ function init(role) {   //run application
         if (response.menu != 'Exit') init(response.menu);            //recall function to add more employees
         if (response.menu == 'Exit') {
             let fileout =  generateHtml(manager,engineers,interns);  //call function to generate html then write to file
-            fs.writeFile('./dist/index.html', fileout, (err) => err ? console.error(err) : console.log('\n*\n***HTML created successfully***'));
+            fs.writeFile('./dist/index.html', fileout, (err) => err ? console.error(err) : console.log('\n\n***HTML created successfully***'));
         }
              
     })

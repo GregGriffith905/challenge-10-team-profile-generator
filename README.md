@@ -7,6 +7,8 @@ This application allows a user to quickly generate a team profile webpage using 
 ## Table of Contents
 
 - [Installation](#installation)
+- [Final site](#final_site)
+- [Walkthrough](#walkthrough)
 - [Usage](#usage)
 - [License](#license)
 - [Badges](#badges)
@@ -17,12 +19,21 @@ This application allows a user to quickly generate a team profile webpage using 
 
 ## Installation
 
-To run this application: After downloading or cloning the repository and navigating to the correct folder using the command line, type "npm i" to install dependencies then type  "node index.js"  to run application.
+To run this application:  After downloading or cloning the repository and navigating to the correct folder using the command line, type "npm i" to install dependencies then type  "node index.js"  to run application.
+
+## Final_Site
+
+Link to html created by app:  [Team Profile Generator](./index.html) 
+
+## Walkthrough
+
+https://drive.google.com/file/d/1LF9vyzf8_zUaKiBWMi5ACeH7eV0KrdZE/view
+[![videolink](./img/screenshot_video.png)](https://drive.google.com/file/d/1LF9vyzf8_zUaKiBWMi5ACeH7eV0KrdZE/view)
 
 ## Usage
 
 To run tests type "npm run test" and to run app type "node index.js"
-see [screenshots](#screenshots) below.
+see ![screenshots](#screenshots) below.
 
 ## License
 
@@ -52,9 +63,9 @@ E-Mail: [greg.arijah@gmail.com](mailto:greg.arijah@gmail.com)
 
 ## Screenshots
 
-![test-screenshot](./images/screenshot_test.png)
-![app-screenshot](./images/screenshot_app.png)
-![webpage-screenshot](./images/screenshot_webpage.png)
+![test-screenshot](./img/screenshot_test.png)
+![app-screenshot](./img/screenshot_app.png)
+![webpage-screenshot](./img/screenshot_webpage.png)
 
 
 
