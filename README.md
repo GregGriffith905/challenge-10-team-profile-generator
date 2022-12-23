@@ -13,6 +13,7 @@ This application allows a user to quickly generate a team profile webpage using 
 - [Features](#features)
 - [Tests](#tests)
 - [Questions](#questions)
+- [Screenshots](#screenshots)
 
 ## Installation
 
@@ -20,7 +21,8 @@ To run this application: After downloading or cloning the repository and navigat
 
 ## Usage
 
-Include screenshots later
+To run tests type "npm run test" and to run app type "node index.js"
+see [screenshots](#screenshots) below.
 
 ## License
 
@@ -47,6 +49,12 @@ Tests have been included for all object methods. To run test at the command line
 GitHub: [gregarijah](https://github.com/gregarijah) 
 
 E-Mail: [greg.arijah@gmail.com](mailto:greg.arijah@gmail.com)
+
+## Screenshots
+
+![test-screenshot](./images/screenshot_test.png)
+![app-screenshot](./images/screenshot_app.png)
+![webpage-screenshot](./images/screenshot_webpage.png)
 
 
 
