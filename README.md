@@ -23,7 +23,7 @@ To run this application:  After downloading or cloning the repository and naviga
 
 ## Final_Site
 
-Link to html created by app:  [Team Profile Generator](./index.html) 
+Link to html created by app:  [Team Profile Generator](./dist/index.html) 
 
 ## Walkthrough
 
